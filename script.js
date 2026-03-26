@@ -10,7 +10,7 @@ addProductButton.addEventListener('click', function () {
   const name = productNameInput.value.trim();
   const price = parseFloat(productPriceInput.value);
 
-  if (name === '' || isNaN(price)) {
+  if (name === '' || isNaN(price) || price <= 0) {
     alert('Please enter valid product name and price');
     return;
   }
