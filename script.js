@@ -27,11 +27,16 @@ addProductButton.addEventListener('click', function () {
   const removeBtn = document.createElement('button');
   removeBtn.textContent = 'Remove';
 
-  removeBtn.addEventListener('click', function () {
-    totalPrice -= price;
-    totalPriceSpan.textContent = totalPrice.toFixed(2);
-    li.remove();
-  });
+ removeBtn.addEventListener('click', function () {
+  totalPrice -= price;
+
+  if (totalPrice < 0) {
+    totalPrice = 0;
+  }
+
+  totalPriceSpan.textContent = totalPrice.toFixed(2);
+  li.remove();
+});
 
   li.appendChild(nameSpan);
   li.appendChild(priceSpan);
